@@ -1,3 +1,3 @@
 [submodule "modules/rake_steps"]
 	path = modules/rake_steps
-	url = git@github.com:andrewrjones/buildbot-rake-steps.git
+	url = git://github.com/andrewrjones/buildbot-rake-steps.git
