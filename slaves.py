@@ -26,7 +26,8 @@ class MySlave(MySlaveBase, BuildSlave):
 
 slaves = [
     # Local
-    MySlave('l1')
+    MySlave('l1'),
+    MySlave('mac')
 ]
 
 # these are slaves that haven't been up and from whose owners I have not heard in a while
