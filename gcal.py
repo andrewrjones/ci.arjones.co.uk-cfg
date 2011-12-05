@@ -11,7 +11,7 @@ gcal['schedulers'] = []
 gcal['schedulers'].append(SingleBranchScheduler(
                             name="gcal-commit",
                             change_filter=filter.ChangeFilter(project='gcal'),
-                            treeStableTimer=None,
+                            treeStableTimer=60,
                             builderNames=["gcal"]))
 
 ####### BUILDERS

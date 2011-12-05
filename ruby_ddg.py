@@ -12,7 +12,7 @@ ruby_ddg['schedulers'] = []
 ruby_ddg['schedulers'].append(SingleBranchScheduler(
                             name="ruby-duck-duck-go-commit",
                             change_filter=filter.ChangeFilter(project='ruby-duck-duck-go'),
-                            treeStableTimer=None,
+                            treeStableTimer=60,
                             builderNames=["ruby-duck-duck-go"]))
 ruby_ddg['schedulers'].append(
     timed.Nightly(name='ruby-duck-duck-go-nightly',

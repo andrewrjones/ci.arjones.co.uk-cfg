@@ -11,7 +11,7 @@ dzil_arjones_bundle['schedulers'] = []
 dzil_arjones_bundle['schedulers'].append(SingleBranchScheduler(
                             name="Dist::Zilla::PluginBundle::ARJONES-commit",
                             change_filter=filter.ChangeFilter(project='Dist::Zilla::PluginBundle::ARJONES'),
-                            treeStableTimer=None,
+                            treeStableTimer=60,
                             builderNames=["Dist::Zilla::PluginBundle::ARJONES"]))
 
 ####### BUILDERS

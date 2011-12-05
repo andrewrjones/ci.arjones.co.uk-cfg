@@ -11,7 +11,7 @@ rake_steps['schedulers'] = []
 rake_steps['schedulers'].append(SingleBranchScheduler(
                             name="buildbot-rake-steps-commit",
                             change_filter=filter.ChangeFilter(project='buildbot-rake-steps'),
-                            treeStableTimer=None,
+                            treeStableTimer=60,
                             builderNames=["buildbot-rake-steps"]))
 
 ####### BUILDERS

@@ -11,7 +11,7 @@ dzil_steps['schedulers'] = []
 dzil_steps['schedulers'].append(SingleBranchScheduler(
                             name="buildbot-dzil-steps-commit",
                             change_filter=filter.ChangeFilter(project='buildbot-dzil-steps'),
-                            treeStableTimer=None,
+                            treeStableTimer=60,
                             builderNames=["buildbot-dzil-steps"]))
 
 ####### BUILDERS
