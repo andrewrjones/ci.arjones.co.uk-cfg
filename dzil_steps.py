@@ -34,5 +34,5 @@ factory_dzil.addStep(Trial(testpath=None, tests="test_steps_dzil.py"))
 dzil_steps['builders'] = []
 dzil_steps['builders'].append(
     BuilderConfig(name="buildbot-dzil-steps",
-      slavenames=["l1"],
+      slavenames=["mac", "l1"],
       factory=factory_dzil))

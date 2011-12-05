@@ -34,5 +34,5 @@ factory_rake.addStep(Trial(testpath=None, tests="test_steps_rake.py"))
 rake_steps['builders'] = []
 rake_steps['builders'].append(
     BuilderConfig(name="buildbot-rake-steps",
-      slavenames=["l1"],
+      slavenames=["mac", "l1"],
       factory=factory_rake))
