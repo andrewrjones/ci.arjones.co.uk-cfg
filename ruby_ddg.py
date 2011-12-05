@@ -29,14 +29,17 @@ ruby_ddg['schedulers'].append(
 
 from buildbot.process.factory import BuildFactory
 from buildbot.steps.source import Git
-#from rake import RakeTest
 from buildbot.config import BuilderConfig
+
+import sys
+sys.path.append("cfg/modules/rake_steps")
+from rake import RakeTest
 
 factory_ddg = BuildFactory()
 # check out the source
 factory_ddg.addStep(Git(repourl='git://github.com/andrewrjones/ruby-duck-duck-go.git', mode='copy'))
 # run the tests
-#factory_ddg.addStep(RakeTest())
+factory_ddg.addStep(RakeTest())
 #factory_ddg.addStep(
 #  ShellCommand(
 #    command=["rake", "test"],
