@@ -25,6 +25,10 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
+import sys
+sys.path.append("cfg/modules/dzil_steps")
+from dzil import DzilSmoke
+
 factory_gcal = BuildFactory()
 # check out the source
 factory_gcal.addStep(Git(repourl='git://github.com/andrewrjones/gcal.git', mode='copy'))
@@ -32,7 +36,7 @@ factory_gcal.addStep(Git(repourl='git://github.com/andrewrjones/gcal.git', mode=
 #factory_gcal.addStep(ShellCommand(command=["source", "../../../perl5/etc/bashrc"]))
 factory_gcal.addStep(ShellCommand(command="dzil authordeps | cpanm"))
 factory_gcal.addStep(ShellCommand(command="dzil listdeps | cpanm"))
-factory_gcal.addStep(ShellCommand(command=["dzil", "smoke"]))
+factory_gcal.addStep(DzilSmoke())
 #factory_gcal.addStep(ShellCommand(command=["prove", "-l", "t"]))
 
 gcal['builders'] = []
