@@ -25,10 +25,12 @@ from buildbot.steps.source.git import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
+from modules.foswiki_steps.foswiki import FoswikiSuite
+
 factory_foswiki_psgi = BuildFactory()
 # check out the source
 factory_foswiki_psgi.addStep(Git(repourl='git://github.com/andrewrjones/foswiki', mode="incremental"))
-factory_foswiki_psgi.addStep(ShellCommand(command="cd core/test/unit; perl ../bin/TestRunner.pl -clean FoswikiSuite.pm"))
+factory_foswiki_psgi.addStep(FoswikiSuite())
 
 foswiki_psgi['builders'] = []
 foswiki_psgi['builders'].append(
