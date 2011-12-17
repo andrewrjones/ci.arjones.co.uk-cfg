@@ -29,7 +29,7 @@ from modules.foswiki_steps.foswiki import FoswikiSuite
 
 factory_foswiki_psgi = BuildFactory()
 # check out the source
-factory_foswiki_psgi.addStep(Git(repourl='git://github.com/andrewrjones/foswiki', mode="incremental"))
+factory_foswiki_psgi.addStep(Git(repourl='git://github.com/andrewrjones/foswiki', mode="incremental", branch="psgi"))
 factory_foswiki_psgi.addStep(FoswikiSuite())
 
 foswiki_psgi['builders'] = []
