@@ -25,9 +25,7 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-import sys
-sys.path.append("cfg/modules/dzil_steps")
-from dzil import DzilSmoke
+from modules.dzil_steps.dzil import DzilSmoke
 
 factory_gcal = BuildFactory()
 # check out the source

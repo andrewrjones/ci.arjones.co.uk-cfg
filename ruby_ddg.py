@@ -31,9 +31,7 @@ from buildbot.process.factory import BuildFactory
 from buildbot.steps.source import Git
 from buildbot.config import BuilderConfig
 
-import sys
-sys.path.append("cfg/modules/rake_steps")
-from rake import RakeTest
+from modules.rake_steps.rake import RakeTest
 
 factory_ddg = BuildFactory()
 # check out the source
