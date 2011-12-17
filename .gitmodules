@@ -4,3 +4,6 @@
 [submodule "modules/dzil_steps"]
 	path = modules/dzil_steps
 	url = git://github.com/andrewrjones/buildbot-dzil-steps.git
+[submodule "modules/foswiki_steps"]
+	path = modules/foswiki_steps
+	url = git://github.com/andrewrjones/buildbot-foswiki-steps.git
