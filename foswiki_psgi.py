@@ -21,13 +21,13 @@ foswiki_psgi['schedulers'].append(SingleBranchScheduler(
 # only take place on one slave.
 
 from buildbot.process.factory import BuildFactory
-from buildbot.steps.source import Git
+from buildbot.steps.source.git import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
 factory_foswiki_psgi = BuildFactory()
 # check out the source
-factory_foswiki_psgi.addStep(Git(repourl='git://github.com/andrewrjones/foswiki', mode='copy'))
+factory_foswiki_psgi.addStep(Git(repourl='git://github.com/andrewrjones/foswiki', mode="incremental"))
 factory_foswiki_psgi.addStep(ShellCommand(command="cd core/test/unit; perl ../bin/TestRunner.pl -clean FoswikiSuite.pm"))
 
 foswiki_psgi['builders'] = []
