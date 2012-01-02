@@ -5,6 +5,7 @@ perl5_www_xboxlive = {}
 # Configure the Schedulers, which decide how to react to incoming changes.  In this
 
 from buildbot.schedulers.basic import SingleBranchScheduler
+from buildbot.schedulers import timed
 from buildbot.changes import filter
 
 perl5_www_xboxlive['schedulers'] = []
@@ -13,6 +14,12 @@ perl5_www_xboxlive['schedulers'].append(SingleBranchScheduler(
                             change_filter=filter.ChangeFilter(project='perl5-WWW-XBoxLive'),
                             treeStableTimer=60,
                             builderNames=["perl5-WWW-XBoxLive"]))
+perl5_www_xboxlive['schedulers'].append(
+    timed.Nightly(name='perl5-WWW-XBoxLive-nightly',
+        builderNames=['perl5-WWW-XBoxLive'],
+        branch=None,
+        hour=2,
+        minute=0))
 
 ####### BUILDERS
 
