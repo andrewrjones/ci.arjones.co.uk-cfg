@@ -25,17 +25,16 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-from modules.dzil_steps.dzil import DzilSmoke
+from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmoke
 
 factory_dzil = BuildFactory()
 # check out the source
 factory_dzil.addStep(Git(repourl='git://github.com/andrewrjones/perl5-Dist-Zilla-PluginBundle-ARJONES.git', mode='copy'))
+# update deps
+factory_dzil.addStep(DzilAuthorDependencies())
+factory_dzil.addStep(DzilDependencies())
 # run the tests
-#factory_dzil.addStep(ShellCommand(command=["source", "../../../perl5/etc/bashrc"]))
-factory_dzil.addStep(ShellCommand(command="dzil authordeps | cpanm"))
-factory_dzil.addStep(ShellCommand(command="dzil listdeps | cpanm"))
 factory_dzil.addStep(DzilSmoke())
-#factory_dzil.addStep(ShellCommand(command=["prove", "-l", "t"]))
 
 dzil_arjones_bundle['builders'] = []
 dzil_arjones_bundle['builders'].append(

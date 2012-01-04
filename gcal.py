@@ -25,17 +25,16 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-from modules.dzil_steps.dzil import DzilSmoke
+from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmoke
 
 factory_gcal = BuildFactory()
 # check out the source
 factory_gcal.addStep(Git(repourl='git://github.com/andrewrjones/gcal.git', mode='copy'))
-# run the tests (note that this will require that 'trial' is installed)
-#factory_gcal.addStep(ShellCommand(command=["source", "../../../perl5/etc/bashrc"]))
-factory_gcal.addStep(ShellCommand(command="dzil authordeps | cpanm"))
-factory_gcal.addStep(ShellCommand(command="dzil listdeps | cpanm"))
-factory_gcal.addStep(DzilSmoke())
-#factory_gcal.addStep(ShellCommand(command=["prove", "-l", "t"]))
+# update deps
+factory_dzil.addStep(DzilAuthorDependencies())
+factory_dzil.addStep(DzilDependencies())
+# run the tests
+factory_dzil.addStep(DzilSmoke())
 
 gcal['builders'] = []
 gcal['builders'].append(

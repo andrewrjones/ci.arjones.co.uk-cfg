@@ -25,14 +25,16 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-from modules.dzil_steps.dzil import DzilSmoke
+from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmoke
 
 factory_mp4meta = BuildFactory()
 # check out the source
 factory_mp4meta.addStep(Git(repourl='git://github.com/andrewrjones/perl5-App-MP4Meta.git', mode='copy'))
-factory_mp4meta.addStep(ShellCommand(command="dzil authordeps | cpanm"))
-factory_mp4meta.addStep(ShellCommand(command="dzil listdeps | cpanm"))
-factory_mp4meta.addStep(DzilSmoke())
+# update deps
+factory_dzil.addStep(DzilAuthorDependencies())
+factory_dzil.addStep(DzilDependencies())
+# run the tests
+factory_dzil.addStep(DzilSmoke())
 
 mp4meta['builders'] = []
 mp4meta['builders'].append(

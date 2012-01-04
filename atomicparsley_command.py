@@ -25,17 +25,16 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-from modules.dzil_steps.dzil import DzilSmoke
+from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmoke
 
 factory_ap = BuildFactory()
 # check out the source
 factory_ap.addStep(Git(repourl='git://github.com/andrewrjones/perl5-AtomicParsley-Command.git', mode='copy'))
-# run the tests (note that this will require that 'trial' is installed)
-#factory_ap.addStep(ShellCommand(command=["source", "../../../perl5/etc/bashrc"]))
-factory_ap.addStep(ShellCommand(command="dzil authordeps | cpanm"))
-factory_ap.addStep(ShellCommand(command="dzil listdeps | cpanm"))
-factory_ap.addStep(DzilSmoke())
-#factory_ap.addStep(ShellCommand(command=["prove", "-l", "t"]))
+# update deps
+factory_dzil.addStep(DzilAuthorDependencies())
+factory_dzil.addStep(DzilDependencies())
+# run the tests
+factory_dzil.addStep(DzilSmoke())
 
 ap['builders'] = []
 ap['builders'].append(
