@@ -28,6 +28,8 @@ from buildbot.config import BuilderConfig
 ant_task_sitemap_factory = BuildFactory()
 # check out the source
 ant_task_sitemap_factory.addStep(Git(repourl='git://github.com/andrewrjones/ant-task-sitemap.git', mode='copy'))
+# clean
+ant_task_sitemap_factory.addStep(ShellCommand(command=["ant", "clean"]))
 # run the tests
 ant_task_sitemap_factory.addStep(ShellCommand(command=["ant", "test"]))
 
