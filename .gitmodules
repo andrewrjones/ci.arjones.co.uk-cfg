@@ -7,3 +7,6 @@
 [submodule "modules/foswiki_steps"]
 	path = modules/foswiki_steps
 	url = git://github.com/andrewrjones/buildbot-foswiki-steps.git
+[submodule "modules/ant_steps"]
+	path = modules/ant_steps
+	url = git://github.com/andrewrjones/buildbot-ant-steps.git
