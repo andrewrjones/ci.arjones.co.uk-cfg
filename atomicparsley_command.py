@@ -31,10 +31,10 @@ factory_ap = BuildFactory()
 # check out the source
 factory_ap.addStep(Git(repourl='git://github.com/andrewrjones/perl5-AtomicParsley-Command.git', mode='copy'))
 # update deps
-factory_dzil.addStep(DzilAuthorDependencies())
-factory_dzil.addStep(DzilDependencies())
+factory_ap.addStep(DzilAuthorDependencies())
+factory_ap.addStep(DzilDependencies())
 # run the tests
-factory_dzil.addStep(DzilSmoke())
+factory_ap.addStep(DzilSmoke())
 
 ap['builders'] = []
 ap['builders'].append(

@@ -31,10 +31,10 @@ factory_mp4meta = BuildFactory()
 # check out the source
 factory_mp4meta.addStep(Git(repourl='git://github.com/andrewrjones/perl5-App-MP4Meta.git', mode='copy'))
 # update deps
-factory_dzil.addStep(DzilAuthorDependencies())
-factory_dzil.addStep(DzilDependencies())
+factory_mp4meta.addStep(DzilAuthorDependencies())
+factory_mp4meta.addStep(DzilDependencies())
 # run the tests
-factory_dzil.addStep(DzilSmoke())
+factory_mp4meta.addStep(DzilSmoke())
 
 mp4meta['builders'] = []
 mp4meta['builders'].append(

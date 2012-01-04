@@ -31,10 +31,10 @@ factory_gcal = BuildFactory()
 # check out the source
 factory_gcal.addStep(Git(repourl='git://github.com/andrewrjones/gcal.git', mode='copy'))
 # update deps
-factory_dzil.addStep(DzilAuthorDependencies())
-factory_dzil.addStep(DzilDependencies())
+factory_gcal.addStep(DzilAuthorDependencies())
+factory_gcal.addStep(DzilDependencies())
 # run the tests
-factory_dzil.addStep(DzilSmoke())
+factory_gcal.addStep(DzilSmoke())
 
 gcal['builders'] = []
 gcal['builders'].append(
