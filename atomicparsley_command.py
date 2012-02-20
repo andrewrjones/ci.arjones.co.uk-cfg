@@ -9,10 +9,10 @@ from buildbot.changes import filter
 
 ap['schedulers'] = []
 ap['schedulers'].append(SingleBranchScheduler(
-                            name="AtomicParsley::Command-commit",
-                            change_filter=filter.ChangeFilter(project='AtomicParsley::Command'),
+                            name="AtomicParsley-Command-commit",
+                            change_filter=filter.ChangeFilter(project='AtomicParsley-Command'),
                             treeStableTimer=60,
-                            builderNames=["AtomicParsley::Command"]))
+                            builderNames=["AtomicParsley-Command"]))
 
 ####### BUILDERS
 
@@ -38,6 +38,6 @@ factory_ap.addStep(DzilSmoke())
 
 ap['builders'] = []
 ap['builders'].append(
-    BuilderConfig(name="AtomicParsley::Command",
-      slavenames=["l1"],
+    BuilderConfig(name="AtomicParsley-Command",
+      slavenames=["mac"],
       factory=factory_ap))
