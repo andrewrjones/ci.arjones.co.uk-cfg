@@ -9,10 +9,10 @@ from buildbot.changes import filter
 
 mp4meta['schedulers'] = []
 mp4meta['schedulers'].append(SingleBranchScheduler(
-                            name="App::MP4Meta-commit",
-                            change_filter=filter.ChangeFilter(project='App::MP4Meta'),
+                            name="App-MP4Meta-commit",
+                            change_filter=filter.ChangeFilter(project='App-MP4Meta'),
                             treeStableTimer=60,
-                            builderNames=["App::MP4Meta"]))
+                            builderNames=["App-MP4Meta"]))
 
 ####### BUILDERS
 
@@ -38,6 +38,6 @@ factory_mp4meta.addStep(DzilSmoke())
 
 mp4meta['builders'] = []
 mp4meta['builders'].append(
-    BuilderConfig(name="App::MP4Meta",
+    BuilderConfig(name="App-MP4Meta",
       slavenames=["l1"],
       factory=factory_mp4meta))
