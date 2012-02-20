@@ -9,10 +9,10 @@ from buildbot.changes import filter
 
 dzil_arjones_bundle['schedulers'] = []
 dzil_arjones_bundle['schedulers'].append(SingleBranchScheduler(
-                            name="Dist::Zilla::PluginBundle::ARJONES-commit",
-                            change_filter=filter.ChangeFilter(project='Dist::Zilla::PluginBundle::ARJONES'),
+                            name="Dist-Zilla-PluginBundle-ARJONES-commit",
+                            change_filter=filter.ChangeFilter(project='Dist-Zilla-PluginBundle-ARJONES'),
                             treeStableTimer=60,
-                            builderNames=["Dist::Zilla::PluginBundle::ARJONES"]))
+                            builderNames=["Dist-Zilla-PluginBundle-ARJONES"]))
 
 ####### BUILDERS
 
@@ -38,6 +38,6 @@ factory_dzil.addStep(DzilSmoke())
 
 dzil_arjones_bundle['builders'] = []
 dzil_arjones_bundle['builders'].append(
-    BuilderConfig(name="Dist::Zilla::PluginBundle::ARJONES",
+    BuilderConfig(name="Dist-Zilla-PluginBundle-ARJONES",
       slavenames=["l1"],
       factory=factory_dzil))
