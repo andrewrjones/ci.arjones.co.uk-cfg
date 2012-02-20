@@ -39,5 +39,5 @@ factory_mp4meta.addStep(DzilSmoke())
 mp4meta['builders'] = []
 mp4meta['builders'].append(
     BuilderConfig(name="App-MP4Meta",
-      slavenames=["l1"],
+      slavenames=["mac"],
       factory=factory_mp4meta))
