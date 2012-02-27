@@ -25,7 +25,7 @@ from buildbot.steps.source import Git
 from buildbot.steps.shell import ShellCommand
 from buildbot.config import BuilderConfig
 
-from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmoke
+from modules.dzil_steps.dzil import DzilAuthorDependencies, DzilDependencies, DzilSmokeVerbose
 
 factory_dzil = BuildFactory()
 # check out the source
@@ -34,7 +34,7 @@ factory_dzil.addStep(Git(repourl='git://github.com/andrewrjones/Dist-Zilla-Foswi
 factory_dzil.addStep(DzilAuthorDependencies())
 factory_dzil.addStep(DzilDependencies())
 # run the tests
-factory_dzil.addStep(DzilSmoke())
+factory_dzil.addStep(DzilSmokeVerbose())
 
 dist_zilla_foswiki['builders'] = []
 dist_zilla_foswiki['builders'].append(
