@@ -26,12 +26,8 @@ class MySlave(MySlaveBase, BuildSlave):
 
 slaves = [
     # Local
-    MySlave('l1'),
-    MySlave('mac')
-]
-
-# these are slaves that haven't been up and from whose owners I have not heard in a while
-retired_slaves = [
+    MySlave('l1', max_builds=1, notify_on_missing="andrew@arjones.co.uk"),
+    MySlave('mac', max_builds=1, notify_on_missing="andrew@arjones.co.uk")
 ]
 
 def get_slaves(db=None, *args, **kwargs):
