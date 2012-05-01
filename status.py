@@ -24,5 +24,6 @@ status.append(html.WebStatus(http_port=8010, authz=authz_cfg, change_hook_dialec
 from buildbot.status import mail
 mail_status = mail.MailNotifier(fromaddr="buildbot@arjones.co.uk",
                       extraRecipients=["andrewjones86@gmail.com"],
-                      sendToInterestedUsers=False)
+                      sendToInterestedUsers=False,
+                      mode="change")
 status.append(mail_status)
