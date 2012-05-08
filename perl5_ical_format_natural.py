@@ -36,8 +36,8 @@ factory_perl5_ical_format_natural.addStep(DzilDependencies())
 # run the tests
 factory_perl5_ical_format_natural.addStep(DzilSmokeVerbose())
 
-gcal['builders'] = []
-gcal['builders'].append(
+factory_perl5_ical_format_natural['builders'] = []
+factory_perl5_ical_format_natural['builders'].append(
     BuilderConfig(name="perl5-ICal-Format-Natural",
       slavenames=["mac"],
       factory=factory_perl5_ical_format_natural))
