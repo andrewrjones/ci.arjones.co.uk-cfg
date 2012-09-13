@@ -14,12 +14,12 @@ perl5_www_arsenalfc_ticketinformation['schedulers'].append(SingleBranchScheduler
                             change_filter=filter.ChangeFilter(project='perl5-WWW-ArsenalFC-TicketInformation'),
                             treeStableTimer=60,
                             builderNames=["perl5-WWW-ArsenalFC-TicketInformation"]))
-#perl5_www_arsenalfc_ticketinformation['schedulers'].append(
-#    timed.Nightly(name='perl5-WWW-ArsenalFC-TicketInformation-nightly',
-#        builderNames=['perl5-WWW-ArsenalFC-TicketInformation'],
-#        branch=None,
-#        hour=2,
-#        minute=0))
+perl5_www_arsenalfc_ticketinformation['schedulers'].append(
+   timed.Nightly(name='perl5-WWW-ArsenalFC-TicketInformation-nightly',
+       builderNames=['perl5-WWW-ArsenalFC-TicketInformation'],
+       branch=None,
+       hour=2,
+       minute=0))
 
 ####### BUILDERS
 
